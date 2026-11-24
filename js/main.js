@@ -72,6 +72,17 @@
     });
   });
 
+  // Logo: siempre regresa al inicio de la página
+  each(".brand", function (a) {
+    a.addEventListener("click", function (e) {
+      e.preventDefault();
+      nav.classList.remove("open");
+      toggle.setAttribute("aria-expanded", "false");
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      if (history.replaceState) history.replaceState(null, "", location.pathname);
+    });
+  });
+
   // Formulario: arma el mensaje y abre WhatsApp
   document.getElementById("form").addEventListener("submit", function (e) {
     e.preventDefault();
