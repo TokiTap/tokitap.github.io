@@ -28,6 +28,7 @@
       a.href = "#contacto";
     }
   });
+  each(".js-wa-info", function (a) { if (hasWa) a.href = waLink(T.whatsappInfo); });
   var flotante = document.querySelector(".wa-float");
   if (!hasWa && flotante) flotante.hidden = true;
 
