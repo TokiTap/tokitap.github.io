@@ -9,13 +9,11 @@ window.TOKI = {
   whatsappMensaje: "Hola Toki, me interesa activar mi negocio con NFC.",
   // Mensaje del botón de WhatsApp junto a las redes sociales
   whatsappInfo: "Hola, Toki Tap. Me gustaría recibir información sobre sus servicios NFC para mi negocio.",
-  email: "hola@PENDIENTE.com",
+  email: "toki.tap.mx@gmail.com",
   instagram: "https://instagram.com/tokitap.mx",
-  // Temporal: búsqueda de "Toki Tap". Cambiar por el enlace de la página
-  // (se copia de la barra de direcciones, ej. https://www.facebook.com/profile.php?id=...)
-  facebook: "https://www.facebook.com/search/top/?q=Toki%20Tap",
+  facebook: "https://www.facebook.com/profile.php?id=61596904683000",
   tiktok: "https://tiktok.com/@tokitap.mx",
   ciudad: "Morelia, Michoacán",
   // Ej.: "Lunes a sábado · 10:00 a 19:00"
-  horario: "Horario PENDIENTE"
+  horario: "Solo con cita"
 };
