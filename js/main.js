@@ -36,7 +36,7 @@
   if (!hasWa && !hasEmail) {
     document.getElementById("form").hidden = true;
     document.getElementById("soon").hidden = false;
-    sub.textContent = "Atendemos restaurantes y cafeterías en " + (T.ciudad || "Morelia") + ".";
+    sub.textContent = "Atendemos todo tipo de negocios en " + (T.ciudad || "Morelia") + ".";
   } else if (!hasWa) {
     sub.textContent = "Cuéntanos de tu negocio y te respondemos por correo con una propuesta.";
     document.querySelector("#form button").textContent = "Enviar por correo";
@@ -44,7 +44,12 @@
   }
   each(".js-wa-text", function (a) {
     var n = String(T.whatsapp || "").replace(/^52/, "");
-    a.textContent = /^\d{10}$/.test(n) ? n.replace(/(\d{3})(\d{3})(\d{4})/, "$1 $2 $3") : n || "—";
+    if (/^\d{10}$/.test(n)) {
+      // Lada de 2 dígitos (CDMX, Guadalajara, Monterrey): 33 1234 5678; las demás: 443 123 4567
+      a.textContent = /^(33|55|81)/.test(n) ? n.replace(/(\d{2})(\d{4})(\d{4})/, "$1 $2 $3") : n.replace(/(\d{3})(\d{3})(\d{4})/, "$1 $2 $3");
+    } else {
+      a.textContent = n || "—";
+    }
   });
 
   // Correo, ciudad, horario y redes
