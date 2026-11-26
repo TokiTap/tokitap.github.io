@@ -41,3 +41,10 @@ Después conecta su dominio desde el panel del hosting.
 - El formulario no necesita servidor: arma el mensaje y abre WhatsApp con el texto listo.
 - La tipografía (Poppins) se carga de Google Fonts.
 - Los colores de la marca están como variables al inicio de `css/styles.css`.
+
+## Asistente del sitio (sin IA)
+
+`js/asistente.js` es un chat programado: responde con botones y palabras clave, sin costo por uso y sin servidor.
+- Las respuestas están en el objeto `R`; las palabras que las activan, en `INTENTOS`.
+- "Agendar visita" pide nombre, negocio, tipo, interés y cuándo, y abre WhatsApp con el resumen.
+- Si cambian precios u horarios de visita en el bot de WhatsApp (`catalogo.yaml`, `agenda.yaml`), hay que cambiarlos aquí también.
