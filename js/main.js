@@ -113,3 +113,31 @@
     });
   }
 })();
+
+// Video de presentación: se reproduce en silencio al verse en pantalla y se pausa al salir
+(function () {
+  var v = document.querySelector(".vid__el");
+  var b = document.querySelector(".vid__sound");
+  if (!v || !b) return;
+  var label = b.querySelector("span");
+  var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  b.addEventListener("click", function () {
+    v.muted = !v.muted;
+    if (!v.muted) { v.volume = 1; v.play(); }
+    b.setAttribute("aria-pressed", String(!v.muted));
+    label.textContent = v.muted ? "Activar sonido" : "Silenciar";
+  });
+
+  if (reduce) { v.controls = true; return; }   // sin reproducción automática si el usuario pidió menos movimiento
+  if ("IntersectionObserver" in window) {
+    new IntersectionObserver(function (es) {
+      es.forEach(function (e) {
+        if (e.isIntersecting) { var p = v.play(); if (p && p.catch) p.catch(function () { v.controls = true; }); }
+        else v.pause();
+      });
+    }, { threshold: 0.4 }).observe(v);
+  } else {
+    v.autoplay = true; v.play();
+  }
+})();
